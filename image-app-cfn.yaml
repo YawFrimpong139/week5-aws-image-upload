@@ -28,7 +28,7 @@ Parameters:
     Description: Private Subnet 2 CIDR
   AllowedGithubRepo:
     Type: String
-    Default: YawFrimpong139/week5-aws-image-upload
+    Default: YawFrimpong139/wk5-photo-app
     Description: Allowed Github Repo
   AllowedGithubBranch:
     Type: String
