@@ -566,6 +566,12 @@ Resources:
                 Action:
                   - cloudformation:DescribeStacks
                 Resource: "*"
+              - Effect: Allow
+                Action:
+                  - codedeploy:CreateDeployment
+                  - codedeploy:GetApplication
+                  - codedeploy:GetDeploymentGroup
+                Resource: !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentgroup/${CodeDeployApplication}/${CodeDeploymentGroup}
 
 
   # IAM Role for ECS Task Execution
@@ -1142,7 +1148,7 @@ Outputs:
     Value: !Ref CodeDeployApplication
     Export:
       Name: !Sub ${EnvironmentName}-CodeDeployApplication
-      
+
   CodeDeployDeploymentGroup:
     Description: Name of the CodeDeploy Deployment Group
     Value: !Ref CodeDeploymentGroup
