@@ -696,9 +696,9 @@ Resources:
             StartPeriod: 120
           Secrets:
             - Name: DB_USERNAME
-              ValueFrom: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/ecs-stack/rds/postgres/username
+              ValueFrom: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/ecs-img-stack/rds/postgres/username
             - Name: DB_PASSWORD
-              ValueFrom: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/ecs-stack/rds/postgres/password
+              ValueFrom: !Sub arn:aws:ssm:${AWS::Region}:${AWS::AccountId}:parameter/ecs-img-stack/rds/postgres/password
           Environment:
             - Name: DB_PORT
               Value: !GetAtt RDSInstance.Endpoint.Port
