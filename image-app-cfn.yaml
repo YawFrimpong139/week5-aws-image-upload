@@ -572,11 +572,13 @@ Resources:
                   - codedeploy:GetApplication
                   - codedeploy:GetDeploymentGroup
                   - codedeploy:GetDeploymentConfig
-                  - codedeploy:RegisterApplicationRevision
-                  - codedeploy:GetDeployment
                 Resource:
                   - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:application/${EnvironmentName}-application
                   - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentgroup/${EnvironmentName}-application/${EnvironmentName}-code-deployment-group
+              - Effect: Allow
+                Action:
+                  - codedeploy:GetDeploymentConfig
+                Resource: "*"   # For managed deployment configs
 
 
 
