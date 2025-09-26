@@ -571,7 +571,13 @@ Resources:
                   - codedeploy:CreateDeployment
                   - codedeploy:GetApplication
                   - codedeploy:GetDeploymentGroup
-                Resource: !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentgroup/${CodeDeployApplication}/${CodeDeploymentGroup}
+                  - codedeploy:GetDeploymentConfig
+                  - codedeploy:RegisterApplicationRevision
+                  - codedeploy:GetDeployment
+                Resource:
+                  - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:application/${EnvironmentName}-application
+                  - !Sub arn:aws:codedeploy:${AWS::Region}:${AWS::AccountId}:deploymentgroup/${EnvironmentName}-application/${EnvironmentName}-code-deployment-group
+
 
 
   # IAM Role for ECS Task Execution
